@@ -19,11 +19,20 @@ Este repositório foi criado para:
 
 ---
 
-## 🚀 **Como Está Organizado**
+## 📁 Como Está Organizado
 Cada diretório neste repositório representa um tema, aula ou curso específico. Aqui está um exemplo da estrutura:
 
-```plaintext
+
 📁 Nome_do_Tema/
    ├── README.md  # Detalhes específicos do tema
    ├── projeto_1/ # Exercícios ou projetos do tema
    ├── projeto_2/ # Mais práticas relacionadas
+
+### Exemplo
+📁 Curso_Node.js_Rocketseat/
+
+   ├── README.md # Detalhes do curso, como descrição e informações gerais 
+   ├── modulo_01/ # Pasta com exercícios e projetos do Módulo 1 
+   ├── projeto_1/ # Primeiro projeto ou exercício do módulo 1 
+   ├── projeto_2/ # Segundo projeto ou exercício do módulo 1 
+   ├── modulo_02/ # Pasta com exercícios e projetos do Módulo 2
