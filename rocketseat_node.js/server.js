@@ -17,9 +17,9 @@
 // ESModules mais atual! (abaixo)
 import http from 'node:http';
 
-                        //Requisição/Pedido & Response = Resposta
+//  Request = (Requisição/Pedido "Quem está chamando o servidor") &  Response = (Resposta "Para quem está chamando o servidor")
 const server = http.createServer((request, response) => {
-
+  return response.end("Servidor Online")
 })
 
-server.listen(3333);
+server.listen(3333); 
