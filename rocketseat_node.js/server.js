@@ -9,6 +9,17 @@
   Esse objeto tem funções (como http.createServer()), classes (como http.Server), e outras propriedades e métodos relacionados a requisições e servidores HTTP.
 */
 
-// ES Module (abaixo)
+// CommonJS => require
+// ESModules => import/export  (para usar o module, é necessário ir no package.json e colocar "type": "module")
+// Pois por padrão o node.js não suporta o ESModules.
+
+
+// ESModules mais atual! (abaixo)
 import http from 'node:http';
 
+                        //Requisição/Pedido & Response = Resposta
+const server = http.createServer((request, response) => {
+
+})
+
+server.listen(3333);
