@@ -1,4 +1,5 @@
 import http from 'node:http'
+import { randomUUID } from 'node:crypto' // => UUID ( Universal Unique Identifier ) Identificador Universalmente Único. 
 import { json } from './middlewares/json.js'
 import { Database } from './middlewares/database.js'
 
@@ -18,25 +19,13 @@ import { Database } from './middlewares/database.js'
     // Criação de Usuários.
     if(method === 'POST' && url === '/users') {
 
-      const { name, email } = request.body
-
-      const user = {
-        id: 1,
-        name,
-        email,
-      }
-
-      database.insert('users', user)
-
-      return response.writeHead('201').end('Usuário Criado com Sucesso!')
+     
     }
 
     // Listagem de Usuários. 
     if(method === 'GET' && url === '/users') {
 
-      const users = database.select('users')
       
-      return response.end(JSON.stringify(users))
     }
 
     return response.writeHead(404).end('Not Found')
