@@ -17,15 +17,23 @@ const server = http.createServer(async(req, res) => {
     buffers.push(chunk)
   }
 
-  const body = Buffer.concat(buffers).toString()
+  try {
+    req.body = JSON.parse(Buffer.concat(buffers).toString())
+  } catch { 
+    req.body = null
+  }
+
+  console.log(body.name)
 
   // Criação de Usuários.
   if(method === 'POST' && url === '/users') {
 
+    const { name, email } = req.body
+
     users.push({
       id: 1,
-      name: 'John Doe',
-      email: 'johndoe@gmail.com'
+      name,
+      email,
     })
 
     return res.writeHead('201').end('Usuário Criado com Sucesso!')
