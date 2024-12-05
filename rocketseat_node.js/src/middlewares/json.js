@@ -13,5 +13,7 @@ export async function json(request, response){
     request.body = null;
   }
 
+  response.setHeader('Content-type', 'application/json')
+
 }
 
