@@ -14,8 +14,8 @@ Este repositório foi criado para:
 
 ## 🚀 Tecnologias Utilizadas
 
-**Linguagens:** [Insira aqui, ex.: JavaScript, Python, HTML, CSS, etc.]
-**Ferramentas:** [Insira aqui, ex.: Git, VSCode, GitHub, etc.]
+**Linguagens:** [JavaScript, Python, HTML, CSS, etc.]
+**Ferramentas:** [Git, VSCode, GitHub, etc...]
 
 ---
 
@@ -23,16 +23,17 @@ Este repositório foi criado para:
 Cada diretório neste repositório representa um tema, aula ou curso específico. Aqui está um exemplo da estrutura:
 
 
-📁 Nome_do_Tema/
-   ├── README.md  # Detalhes específicos do tema
-   ├── projeto_1/ # Exercícios ou projetos do tema
-   ├── projeto_2/ # Mais práticas relacionadas
+📁 **Curso Node.js Rocketseat - Rodrigo/**  
 
-### Exemplo
-📁 Curso_Node.js_Rocketseat/
+📄 README.md – Detalhes específicos do tema  
+📁 projeto_1/ – Exercícios ou projetos do tema  
+📁 projeto_2/ – Mais práticas relacionadas  
 
-   ├── README.md # Detalhes do curso, como descrição e informações gerais 
-   ├── modulo_01/ # Pasta com exercícios e projetos do Módulo 1 
-   ├── projeto_1/ # Primeiro projeto ou exercício do módulo 1 
-   ├── projeto_2/ # Segundo projeto ou exercício do módulo 1 
-   ├── modulo_02/ # Pasta com exercícios e projetos do Módulo 2
+
+📁 **Curso_Node.js_Rocketseat - Diego/**  
+
+📄 README.md – Detalhes do curso, como descrição e informações gerais  
+📁 modulo_01/ – Pasta com exercícios e projetos do Módulo 1  
+📁 projeto_1/ – Primeiro projeto ou exercício do módulo 1  
+📁 projeto_2/ – Segundo projeto ou exercício do módulo 1  
+📁 modulo_02/ – Pasta com exercícios e projetos do Módulo 2  
