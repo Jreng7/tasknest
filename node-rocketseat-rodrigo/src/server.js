@@ -11,15 +11,6 @@ const server = http.createServer(async (request, response) => {
   }
 
   if(method === 'POST' && url === '/products'){
-  
-    const buffers = [] // Banco de Dados.
-
-    for await (const chunk of request){
-      buffers.push(chunk)
-    }
-
-    const body = JSON.parse(Buffer.concat(buffers).toString())
-    console.log(body)
 
     return response.writeHead(201).end("Produto cadastrado com sucesso!")
   }
