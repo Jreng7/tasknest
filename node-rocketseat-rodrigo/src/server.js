@@ -4,7 +4,16 @@ import http from 'node:http' // Quando usamos "node:http" significa que estamos 
 
 const server = http.createServer((request, response) => {
   const { method, url } = request
-  return response.writeHead(404).end("O método da requisição é: " + method)
+
+  if(method === 'GET' && url === '/products'){
+    return response.end("Lista de produtos")
+  }
+
+  if(method === 'POST' && url === '/products'){
+    
+  }
+
+  return response.writeHead(200).end("A URL é: " + url)
 })
 
 server.listen(3333)
