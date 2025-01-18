@@ -1,3 +1,4 @@
+import { parseRoutePath } from "./utils/parseRoutePath.js"
 
 export const routes = [
 
@@ -34,4 +35,7 @@ export const routes = [
     }
   },
 
-]
+].map((rota) => ({
+  ...rota,
+  url: parseRoutePath(rota.url)
+}))
