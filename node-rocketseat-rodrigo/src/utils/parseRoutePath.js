@@ -1,4 +1,4 @@
 
 export function parseRoutePath(url){
-  console.log(url)
+  const regexParams = /:([])/
 }
