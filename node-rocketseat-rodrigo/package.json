@@ -1,0 +1,12 @@
+{
+  "name": "rocketseat-rodrigo",
+  "version": "1.0.0",
+  "description": "Curso Node.js da Rocketseat - FullStack",
+  "main": "src/server.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Josue Ribeiro",
+  "license": "ISC"
+}
