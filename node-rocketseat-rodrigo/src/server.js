@@ -3,7 +3,8 @@ import http from 'node:http' // Quando usamos "node:http" significa que estamos 
 // Clareza: O prefixo node: deixa explícito que você está usando um módulo embutido no Node.js.
 
 const server = http.createServer((request, response) => {
-  return response.end("Mudando o script em package.json")
+  const { method, url } = request
+  return response.writeHead(404).end("O método da requisição é: " + method)
 })
 
 server.listen(3333)
