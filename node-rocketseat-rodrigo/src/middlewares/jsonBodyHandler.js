@@ -1,14 +1,14 @@
 
-export async function jsonBodyHandler(request, response){
+export async function jsonBodyHandler(request){
   
   const bancoDeDados = []
 
   for await (const chunk of request){
-    bancoDeDados.push((Buffer.concat(chunk).toString()))
+    bancoDeDados.push(chunk)
   }
 
   try {
-    request.body = JSON.parse(bancoDeDados)
+    request.body = JSON.parse(Buffer.concat(bancoDeDados).toString())
   } catch {
     request.body = null
   }
