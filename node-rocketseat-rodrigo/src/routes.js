@@ -24,4 +24,14 @@ export const routes = [
     }
   },
 
+   // Metodo DELETE
+   {
+    method: "DELETE", 
+    url: "/products/:id",
+
+    controller: (request, response) => {
+      return response.writeHead(204).end()
+    }
+  },
+
 ]
