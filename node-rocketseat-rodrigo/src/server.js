@@ -3,7 +3,7 @@ import http from 'node:http' // Quando usamos "node:http" significa que estamos 
 // Clareza: O prefixo node: deixa explícito que você está usando um módulo embutido no Node.js.
 
 
-const server = http.createServer((request, response) => {
+const server = http.createServer(async (request, response) => {
   const { method, url } = request
 
   if(method === 'GET' && url === '/products'){
@@ -18,6 +18,8 @@ const server = http.createServer((request, response) => {
       buffers.push(chunk)
     }
 
+    const body = JSON.parse(Buffer.concat(buffers).toString())
+    console.log(body)
 
     return response.writeHead(201).end("Produto cadastrado com sucesso!")
   }
