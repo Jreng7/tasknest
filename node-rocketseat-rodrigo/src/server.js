@@ -10,7 +10,7 @@ const server = http.createServer(async (request, response) => {
   await jsonBodyHandler(request)
   routeHandler(request, response)
 
-  return response.writeHead(404).end("Not found - Rota não encontrada.")
+
 
 })
 

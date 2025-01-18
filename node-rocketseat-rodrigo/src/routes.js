@@ -1,6 +1,4 @@
 
-
-
 export const routes = [
 
 
@@ -12,7 +10,7 @@ export const routes = [
     controller: (request, response) => {
       return response
         .setHeader("Content-Type", "application/json")
-        .end("Lista de Usuários.") // Envia os dados em formato JSON.
+        .end("") // Envia os dados em formato JSON.
     }
   },
 
@@ -22,7 +20,7 @@ export const routes = [
     url: "/products",
 
     controller: (request, response) => {
-      return response.writeHead(201).end("Usuário Criado com Sucesso")
+      return response.writeHead(201).end("Produto criado com Sucesso")
     }
   },
 
