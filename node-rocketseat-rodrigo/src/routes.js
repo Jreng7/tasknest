@@ -1,3 +1,4 @@
+
 import { parseRoutePath } from "./utils/parseRoutePath.js"
 
 export const routes = [
@@ -6,7 +7,7 @@ export const routes = [
   // Metodo GET
   {
     method: "GET", 
-    url: "/products",
+    path: "/products",
 
     controller: (request, response) => {
       return response
@@ -18,7 +19,7 @@ export const routes = [
   // Metodo POST
   {
     method: "POST", 
-    url: "/products",
+    path: "/products",
 
     controller: (request, response) => {
       return response.writeHead(201).end("Produto criado com Sucesso")
@@ -26,16 +27,16 @@ export const routes = [
   },
 
    // Metodo DELETE
-   {
+  {
     method: "DELETE", 
-    url: "/products/:id",
+    path: "/products/:id",
 
     controller: (request, response) => {
-      return response.writeHead(204).end()
-    }
-  },
-
+      return response.end("Removido")
+    },
+  },  
+  
 ].map((rota) => ({
   ...rota,
-  url: parseRoutePath(rota.url)
+  path: parseRoutePath(rota.path)
 }))
