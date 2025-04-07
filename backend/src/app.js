@@ -1,10 +1,6 @@
 // Core modules
 import express from 'express'
 
-// Config
-import dotenv from 'dotenv'
-dotenv.config()
-
 // Middlewares de terceiros 
 import cors from 'cors'
 import helmet from 'helmet'
