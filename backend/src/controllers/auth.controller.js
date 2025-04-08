@@ -1,9 +1,15 @@
-import { User } from '../models/user.model'
+import { User } from '../models/user.model.js'
 
-export const register = (req, res) => {
+export const register = async (req, res) => {
+  
   const { email, password, username } = req.body
 
-  new User({ username, email, password })
+  try {
+    const newUser = new User({ username, email, password })
+    await newUser.save()
+  } catch (err) {
+    console.error(err)
+  }
 
   res.send('registrando...')
 }

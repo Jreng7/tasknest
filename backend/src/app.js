@@ -1,6 +1,6 @@
 // Core modules
 import express from 'express'
-import { router } from './routes/auth.routes'
+import { router } from './routes/auth.routes.js'
 
 // Middlewares de terceiros 
 import cors from 'cors'
