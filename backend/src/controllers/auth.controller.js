@@ -1,7 +1,7 @@
 import { User } from '../models/user.model.js'
 
 export const register = async (req, res) => {
-  
+
   const { email, password, username } = req.body
 
   try {
@@ -10,8 +10,7 @@ export const register = async (req, res) => {
   } catch (err) {
     console.error(err)
   }
-
-  res.send('registrando...')
+  return res.status(201).json(newUser)
 }
 
 export const login = (req, res) => res.send('login')
