@@ -1,11 +1,15 @@
 import { User } from '../models/user.model.js'
-import 
+import bcrypt from 'bcryptjs'
+
 
 export const register = async (req, res) => {
 
   const { email, password, username } = req.body
 
   try {
+
+    // Gera Hash para senha.
+    const passwordHash = await bcrypt.hash(password, 10)
 
     // Verifica se já existe um usuário com o mesmo e-mail ou username
     const existingUser = await User.findOne({ $or: [{ email}, {username}] })
@@ -14,7 +18,7 @@ export const register = async (req, res) => {
     }
 
     // Cria o novo usuário
-    const newUser = new User({ username, email, password })
+    const newUser = new User({ username, email, password: passwordHash })
 
     // Salva no banco
     const userSaved = await newUser.save()
@@ -23,7 +27,9 @@ export const register = async (req, res) => {
     const userResponse = {
       _id: userSaved.id,
       email: userSaved.email,
-      username: userSaved.username
+      username: userSaved.username,
+      createdAt: userSaved.createdAt,
+      updatedAt: userSaved.updatedAt
     }
     res.status(201).json(userResponse)
   } catch (err) {
