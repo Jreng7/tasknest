@@ -1,13 +1,13 @@
 import { User } from '../models/user.model.js'
+import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
-
+import { secret } from '../config/config.js'
 
 export const register = async (req, res) => {
 
   const { email, password, username } = req.body
 
   try {
-
     // Gera Hash para senha.
     const passwordHash = await bcrypt.hash(password, 10)
 
@@ -23,6 +23,8 @@ export const register = async (req, res) => {
     // Salva no banco
     const userSaved = await newUser.save()
 
+    const token = jwt.sign({ id: userSaved._id }, secret.key, { expiresIn: '1d'})
+
     // Remove o password da resposta
     const userResponse = {
       _id: userSaved.id,
@@ -31,7 +33,7 @@ export const register = async (req, res) => {
       createdAt: userSaved.createdAt,
       updatedAt: userSaved.updatedAt
     }
-    res.status(201).json(userResponse)
+    res.status(201).json({user: userResponse, token})
   } catch (err) {
     console.error('🔴 Error registering user:', err)
     return res.status(500).json({ message: 'Internal server error' })

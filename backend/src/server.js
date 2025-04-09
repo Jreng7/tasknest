@@ -1,7 +1,6 @@
 import server from './app.js'
 import { connect } from './database/db.js'
-
-const port = process.env.PORT || 3033
+import { port } from './config/config.js'
 
 const start = async () => {
   try {
