@@ -23,6 +23,7 @@ export const register = async (req, res) => {
     // Salva no banco
     const userSaved = await newUser.save()
 
+    // Gera um token usando id no payloud, secret e expiresIn para 1 dia.
     const token = jwt.sign({ id: userSaved._id }, secret.key, { expiresIn: '1d'})
 
     // Remove o password da resposta
@@ -33,6 +34,7 @@ export const register = async (req, res) => {
       createdAt: userSaved.createdAt,
       updatedAt: userSaved.updatedAt
     }
+    // Responde com usuário e o Token para o frontend capturar
     res.status(201).json({user: userResponse, token})
   } catch (err) {
     console.error('🔴 Error registering user:', err)
