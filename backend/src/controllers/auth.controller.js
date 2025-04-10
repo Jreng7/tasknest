@@ -1,7 +1,5 @@
 import { User } from '../models/user.model.js'
-import jwt from 'jsonwebtoken'
 import bcrypt from 'bcryptjs'
-import { secret } from '../config/config.js'
 
 export const register = async (req, res) => {
 
@@ -23,11 +21,8 @@ export const register = async (req, res) => {
     // Salva no banco
     const userSaved = await newUser.save()
 
-    // Gera um token usando id no payloud, secret e expiresIn para 1 dia.
-    jwt.sign({ id: userSaved._id }, secret.key, { expiresIn: '1d'}, (err, token) => {
-      if (err) console.error(err); // Acaba a sentança, se não der erro pula p/ linha debaixo.
-        res.json({token})
-    })
+    // Resposta da criação do Token
+    res.cookie('token', token).json({ message: "User created sucessfully" })
 
     // Remove o password da resposta
     const userResponse = {
