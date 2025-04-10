@@ -24,7 +24,10 @@ export const register = async (req, res) => {
     const userSaved = await newUser.save()
 
     // Gera um token usando id no payloud, secret e expiresIn para 1 dia.
-    const token = jwt.sign({ id: userSaved._id }, secret.key, { expiresIn: '1d'})
+    jwt.sign({ id: userSaved._id }, secret.key, { expiresIn: '1d'}, (err, token) => {
+      if (err) console.error(err); // Acaba a sentança, se não der erro pula p/ linha debaixo.
+        res.json({token})
+    })
 
     // Remove o password da resposta
     const userResponse = {
