@@ -43,10 +43,12 @@ export const login = async (req, res) => {
     const isMatch = await bcrypt.compare(password, userFound.password)
     if(!isMatch) return res.status(400).json({ message: 'Incorrect password.' })
 
-    const token = await createAcessToken({ id: userFound._id })
+    const token = await createAccessToken({ id: userFound._id })
 
     res.cookie('token', token, {
       httpOnly: true, // Bloqueia acesso via JS (previne XSS)
+      secure: true, // Só envia via HTTPS (obrigatório em produção)
+      sameSite: 'strict' // Previne ataques CSRF
     }).json({
       _id: userFound.id,
       email: userFound.email,
