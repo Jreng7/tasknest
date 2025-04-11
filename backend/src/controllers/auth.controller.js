@@ -21,7 +21,7 @@ export const register = async (req, res) => {
 
     // Salva no banco
     const userSaved = await newUser.save()
-    await createAcessToken({id: userSaved._id})
+    const token = await createAcessToken({id: userSaved._id})
 
     // Resposta da criação do Token
     res.cookie('token', token).json({ message: "User created sucessfully" })
