@@ -93,3 +93,12 @@ export const logout = (req, res) => {
   // OU, se não precisar enviar mensagem:
   res.sendStatus(204); // 204 No Content é semanticamente bom para logout bem-sucedido sem corpo de resposta
 };
+
+//  A função res.cookie() funciona assim:
+//  res.cookie( NOME_DO_COOKIE , VALOR_DO_COOKIE , OPÇÕES_DO_COOKIE )
+
+
+//  No logout: res.cookie('token', '', { expires: new Date(0) })
+//  Nome: 'token'
+//  Valor: '' (vazio, para limpar)
+//  Opções: { expires: new Date(0) } (regra para expirar agora!)
