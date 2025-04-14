@@ -78,5 +78,18 @@ export const login = async (req, res) => {
 }
 
 export const logout = (req, res) => {
-  
-}
+  // Definir as mesmas opções usadas no login/registro para garantir a exclusão
+  const cookieOptions = {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax',
+    expires: new Date(0)
+  };
+
+  res.cookie('token', '', cookieOptions); // Define o cookie com valor vazio e expiração no passado
+
+  // Envia uma resposta de sucesso (200 OK é o padrão, mas 204 No Content também é comum para logout)
+  // res.status(200).json({ message: 'Logout bem-sucedido.' });
+  // OU, se não precisar enviar mensagem:
+  res.sendStatus(204); // 204 No Content é semanticamente bom para logout bem-sucedido sem corpo de resposta
+};
